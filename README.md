@@ -296,7 +296,7 @@ These results confirmed that:
 
 **Screenshot – Successful Static IP Configuration and Routing Table**
 
-![Kali Linux Static IP Verification](screenshots/static-ip-verification.png)
+![Kali Linux Network Activation Error](https://github.com/bozet/networkwalks-B084-week1-Cybersecurity-Lab-Setup/blob/main/Kali%20Linux%20Static.jpg)
 
 ---
 
@@ -330,7 +330,7 @@ Checks whether DNS resolution and network connectivity are working.
 
 **Screenshot – Gateway and Network Connectivity Test**
 
-![Gateway Connectivity Test](https://github.com/bozet/networkwalks-B084-week1-Cybersecurity-Lab-Setup/blob/main/test%20gateway.jpg)
+![Gateway Connectivity Test](https://github.com/bozet/networkwalks-B084-week1-Cybersecurity-Lab-Setup/blob/main/Gateway%20Test.jpg)
 
 *Note: The static IP and routing configuration have been verified. Gateway, internet and DNS connectivity should only be marked as successful after their corresponding tests have been completed.*
 
