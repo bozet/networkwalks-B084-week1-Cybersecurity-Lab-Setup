@@ -129,9 +129,10 @@ The following resources were allocated:
 
 **Screenshot – Kali Linux Desktop**
 
-![Kali Linux Desktop](screenshots/kali-linux-desktop.png)
+![Kali Linux Virtual Machine](https://github.com/bozet/networkwalks-B084-week1-Cybersecurity-Lab-Setup/blob/main/Kali%20Linux%20Desktop.jpg)
 
-### Step 4: Create and Configure the NAT Network
+
+###  Create and Configure the NAT Network
 
 A dedicated NAT Network named `Kali-NAT` was created through the VirtualBox Network Manager.
 
@@ -146,11 +147,11 @@ DHCP: Enabled
 
 This network was intended to provide internet connectivity to the Kali Linux virtual machine.
 
-**Screenshot – NAT Network Configuration**
 
-![NAT Network Configuration](screenshots/nat-network-configuration.png)
+![Kali Linux Virtual Machine](https://github.com/bozet/networkwalks-B084-week1-Cybersecurity-Lab-Setup/blob/main/Kali%20Linux%20Virtual%20Machine%20nat.jpg)
 
-### Step 5: Configure Kali Linux Network Adapter
+
+###  Configure Kali Linux Network Adapter
 
 The Kali Linux virtual machine was connected to the custom `Kali-NAT` network.
 
@@ -164,19 +165,19 @@ Gateway: 10.0.0.1
 
 The network interface was configured through Kali Linux NetworkManager.
 
-**Screenshot – Kali Linux Network Settings**
 
-![Kali Linux Network Settings](screenshots/kali-network-configuration.png)
+![Kali Linux Virtual Machine](https://github.com/bozet/networkwalks-B084-week1-Cybersecurity-Lab-Setup/blob/main/kali%20net%20config.jpg)
+
 
 ---
 
-# 🔎 6. Network Troubleshooting and Resolution
+# 🔎  Network Troubleshooting and Resolution
 
 During the configuration process, Kali Linux encountered a network activation failure.
 
 This section documents the issue, the troubleshooting process and the alternative configuration that restored network connectivity.
 
-### 6.1 Initial Network Activation Error
+###  Initial Network Activation Error
 
 When attempting to activate the connection using NetworkManager, the following command was executed:
 
@@ -198,9 +199,10 @@ The network interface appeared as UP, but it did not successfully obtain an IPv4
 
 **Screenshot – Kali Linux Network Activation Error**
 
-![Kali Linux Network Activation Error](screenshots/kali-network-activation-error.png)
+![Kali Linux Virtual Machine](https://github.com/bozet/networkwalks-B084-week1-Cybersecurity-Lab-Setup/blob/main/kali%20activation%20error.jpg)
 
-### 6.2 Troubleshooting Approach
+
+###  Troubleshooting Approach
 
 The initial troubleshooting process involved checking the network configuration and attempting to restore connectivity.
 
@@ -213,7 +215,7 @@ The following possibilities were considered:
 
 The initial static IP configuration did not establish connectivity, and subsequent DHCP activation attempts also failed.
 
-### 6.3 Alternative Configuration and Resolution
+###  Alternative Configuration and Resolution
 
 An alternative approach was used to reset the IPv4 configuration of the NetworkManager connection and switch it to automatic addressing.
 
@@ -236,16 +238,16 @@ sudo nmcli connection up "Wired connection 1"
 
 **Screenshot – Successful Network Activation**
 
-![Successful Network Activation](screenshots/network-activation-success.png)
+![Kali Linux Virtual Machine](https://github.com/bozet/networkwalks-B084-week1-Cybersecurity-Lab-Setup/blob/main/sucessful%20connection.jpg)
 
 
 ---
 
-## 🧪 7. Network Verification
+## 🧪  Network Verification
 
 After restoring network connectivity, the following commands can be used to inspect the network configuration and verify the connection.
 
-### 7.1 Check Network Interfaces
+###  Check Network Interfaces
 
 ```bash
 ip a
@@ -253,11 +255,8 @@ ip a
 
 Displays available network interfaces and their assigned IP addresses.
 
-**Screenshot – Network Interface Output**
 
-![Network Interfaces](screenshots/network-interfaces.png)
-
-### 7.2 Display Routing Information
+###  Display Routing Information
 
 ```bash
 ip route
@@ -265,11 +264,8 @@ ip route
 
 Displays the routing table and default gateway information.
 
-**Screenshot – Routing Table**
 
-![Routing Table](screenshots/routing-table.png)
-
-### 7.3 Check NetworkManager Device Status
+###  Check NetworkManager Device Status
 
 ```bash
 nmcli device status
@@ -277,19 +273,8 @@ nmcli device status
 
 Displays the status of network devices managed by NetworkManager.
 
-**Screenshot – NetworkManager Status**
 
-![NetworkManager Status](screenshots/networkmanager-status.png)
-
-### 7.4 Test Gateway Connectivity
-
-```bash
-ping 10.0.0.1
-```
-
-Tests connectivity to the configured NAT Network gateway.
-
-### 7.5 Test Internet Connectivity
+###  Test Internet Connectivity
 
 ```bash
 ping -c 4 8.8.8.8
@@ -297,7 +282,7 @@ ping -c 4 8.8.8.8
 
 Tests outbound connectivity using Google's public DNS IP address.
 
-### 7.6 Test DNS Resolution
+###  Test DNS Resolution
 
 ```bash
 ping -c 4 google.com
@@ -305,11 +290,12 @@ ping -c 4 google.com
 
 Checks whether DNS resolution and network connectivity are working.
 
-*Only report verification tests as successful when their actual command outputs confirm success.*
+![Kali Linux Virtual Machine](https://github.com/bozet/networkwalks-B084-week1-Cybersecurity-Lab-Setup/blob/main/test%20gateway.jpg)
+
 
 ---
 
-## 🐞 8. Challenges and Lessons Learned
+## 🐞  Challenges and Lessons Learned
 
 The major technical challenge encountered during this project was the Kali Linux network activation failure.
 
@@ -339,15 +325,15 @@ Through this project, I gained practical experience in:
 
 ---
 
-## 🔐 9. Security and Ethical Considerations
+## 🔐  Security and Ethical Considerations
 
-This laboratory is intended for educational purposes and authorized cybersecurity practice.
+This lab is intended for educational purposes and authorized cybersecurity practice.
 
 All security testing should be conducted within systems owned by the student or systems for which explicit permission has been granted.
 
 ---
 
-## 🔗 10. Tools and References
+## 🔗  Tools and References
 
 - [Oracle VirtualBox](https://www.virtualbox.org/)
 - [Kali Linux](https://www.kali.org/get-kali/)
@@ -356,7 +342,7 @@ All security testing should be conducted within systems owned by the student or 
 
 ---
 
-## 👤 11. Author
+## 👤  Author
 
 **Bryan Ntangju Ache**
 
