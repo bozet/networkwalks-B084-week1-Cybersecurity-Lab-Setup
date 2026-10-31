@@ -344,7 +344,7 @@ All security testing should be conducted within systems owned by the student or 
 
 ## 👤  Author
 
-**Bryan Ntangju Ache**
+**Ntangju Bryan Ache**
 
 Cybersecurity Internship  
 Networkwalks
