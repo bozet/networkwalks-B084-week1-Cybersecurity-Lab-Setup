@@ -123,7 +123,9 @@ The following resources were allocated:
 - Network Adapter: NAT Network
 
 
-![Kali Linux Virtual Machine](screenshots/kali-linux-vm.png)
+![Kali Linux Virtual Machine](https://github.com/bozet/networkwalks-B084-week1-Cybersecurity-Lab-Setup/blob/main/Kali%20Linux%20Virtual%20Machine%20memory.jpg)
+![Kali Linux Virtual Machine](https://github.com/bozet/networkwalks-B084-week1-Cybersecurity-Lab-Setup/blob/main/Kali%20Linux%20Virtual%20Machine%20cpu.jpg)
+
 
 **Screenshot – Kali Linux Desktop**
 
