@@ -3,11 +3,12 @@
 
 
 
+
 <div align="center">
 
 # 🔐 Cybersecurity Lab Environment Setup
 
-**Building an isolated virtual lab for cybersecurity learning, network administration and ethical hacking practice**
+**Building an isolated virtual lab for cybersecurity learning, network configuration and ethical hacking practice**
 
 </div>
 
@@ -15,10 +16,8 @@
   <img src="https://img.shields.io/badge/Project-Cybersecurity-404040?style=flat-square&labelColor=C00000" />
   <img src="https://img.shields.io/badge/Hypervisor-VirtualBox%207.1.8-0070C0?style=flat-square&labelColor=000000&logo=virtualbox&logoColor=white" />
   <img src="https://img.shields.io/badge/OS-Kali%20Linux-E87500?style=flat-square&labelColor=000000&logo=kalilinux&logoColor=white" />
-  <img src="https://img.shields.io/badge/Server-Ubuntu%20Server-E95420?style=flat-square&labelColor=000000&logo=ubuntu&logoColor=white" />
   <img src="https://img.shields.io/badge/Host-Windows%2011-0078D4?style=flat-square&labelColor=000000&logo=windows11&logoColor=white" />
   <img src="https://img.shields.io/badge/Network-10.0.0.0%2F24-238F89?style=flat-square&labelColor=000000" />
-  <img src="https://img.shields.io/badge/Network-Host--Only-238F89?style=flat-square&labelColor=000000" />
   <img src="https://img.shields.io/badge/Skill-Linux-404040?style=flat-square&labelColor=C00000&logo=linux&logoColor=white" />
   <img src="https://img.shields.io/badge/Skill-Virtualization-404040?style=flat-square&labelColor=C00000" />
   <img src="https://img.shields.io/badge/Focus-Network%20Security-C00000?style=flat-square&labelColor=000000" />
@@ -28,48 +27,43 @@
 
 ---
 
-
 ## 📌 1. Project Overview
 
-This project focuses on building a virtual cybersecurity laboratory using Oracle VirtualBox as the hypervisor.
+This project documents the setup and configuration of an isolated cybersecurity laboratory using Oracle VirtualBox and Kali Linux.
 
-The environment consists of Kali Linux and Ubuntu Server virtual machines running on a Windows 11 host.
+The objective was to establish a virtual environment for cybersecurity learning, network configuration, Linux administration and ethical hacking practice.
 
-The project provides practical exposure to virtualization, Linux administration, IP addressing, virtual networking and network troubleshooting.
+The project involved creating a custom NAT Network, importing Kali Linux, configuring its network interface and troubleshooting connectivity issues encountered during the setup.
 
 ## 🎯 2. Project Objectives
 
 - Install and configure Oracle VirtualBox.
 - Download and import Kali Linux.
-- Configure a VirtualBox NAT Network.
-- Configure a separate Host-Only network.
-- Set up an Ubuntu Server virtual machine.
-- Understand virtual machine network communication.
-- Configure and troubleshoot IPv4 networking.
-- Verify network interfaces and connectivity.
-- Document technical challenges and troubleshooting procedures.
+- Create a custom NAT Network using the `10.0.0.0/24` subnet.
+- Configure Kali Linux with the required static IP address.
+- Establish internet connectivity within the virtual machine.
+- Troubleshoot network activation and DHCP issues.
+- Document the configuration process and solutions.
 
 ---
 
-## 🏗️ 3. Lab Architecture
+## 🖥️ 3. Lab Environment and Architecture
 
-The laboratory consists of the following components:
+### 3.1 Host Machine Specifications
 
 | Component | Configuration |
 |---|---|
 | Host Machine | HP EliteBook 8770w |
-| Host Operating System | Windows 11 |
+| Operating System | Windows 11 |
 | Hypervisor | Oracle VirtualBox 7.1.8 |
-| Security Distribution | Kali Linux |
-| Server Operating System | Ubuntu Server |
-| Kali VM RAM | 3 GB |
-| Kali VM CPU | 2 vCPUs |
-| Ubuntu VM Name | ubuntu-server-lab |
-| Virtual Networking | NAT Network and Host-Only |
+| Virtual Machine | Kali Linux |
+| Allocated RAM | 3 GB |
+| Allocated CPU | 2 vCPUs |
+| Network Mode | NAT Network |
 
-### 3.1 Virtual Network Architecture
+### 3.2 Network Architecture
 
-**NAT Network**
+The laboratory uses a custom VirtualBox NAT Network.
 
 | Parameter | Configuration |
 |---|---|
@@ -77,15 +71,10 @@ The laboratory consists of the following components:
 | IPv4 Prefix | 10.0.0.0/24 |
 | Gateway | 10.0.0.1 |
 | DHCP | Enabled |
-
-**Host-Only Network**
-
-| Parameter | Configuration |
-|---|---|
-| Host IP Address | 192.168.56.1 |
+| Required Kali IP | 10.0.0.2 |
 | Subnet Mask | 255.255.255.0 |
-| DHCP Server | 192.168.56.100 |
-| DHCP Pool | 192.168.56.101 – 192.168.56.254 |
+
+The intended configuration assigns Kali Linux a static IP address within the custom NAT Network.
 
 ---
 
@@ -94,35 +83,38 @@ The laboratory consists of the following components:
 | Tool | Purpose |
 |---|---|
 | Oracle VirtualBox | Virtualization |
-| Kali Linux | Cybersecurity learning environment |
-| Ubuntu Server | Linux server environment |
+| Kali Linux | Cybersecurity operating system |
 | Windows 11 | Host operating system |
 | 7-Zip | Archive extraction |
-| PowerShell | VirtualBox and system management |
+| PowerShell | VirtualBox management |
 | NetworkManager | Linux network configuration |
+| nmcli | Network configuration through the command line |
 
 ---
 
 # 🚀 5. Implementation and Configuration
 
-## Step 1: Prepare the Host Machine
+### Step 1: Prepare the Host Machine
 
-The host computer used for this laboratory was an HP EliteBook 8770w running Windows 11.
+The host computer used for this project was an HP EliteBook 8770w running Windows 11.
 
-System resources were considered before allocating memory and processing power to the virtual machines.
+Available system resources were considered before allocating memory and processing power to the virtual machine.
 
+**Screenshot – Host Machine Information**
 
-## Step 2: Install Oracle VirtualBox
+![Host Machine Information](screenshots/host-machine-information.png)
+
+### Step 2: Install Oracle VirtualBox
 
 Oracle VirtualBox version 7.1.8 was installed and configured as the hypervisor.
 
-VirtualBox provides the virtualization platform required to create and manage the Kali Linux and Ubuntu Server virtual machines.
+VirtualBox provides the virtualization platform required to create and manage the Kali Linux virtual machine.
 
 **Screenshot – VirtualBox Dashboard**
 
 ![VirtualBox Dashboard](screenshots/virtualbox-dashboard.png)
 
-## Step 3: Download and Import Kali Linux
+### Step 3: Download and Import Kali Linux
 
 The official Kali Linux prebuilt VirtualBox image was downloaded and extracted.
 
@@ -130,7 +122,7 @@ The virtual machine was subsequently imported into Oracle VirtualBox.
 
 The following resources were allocated:
 
-- Memory: 3 GB
+- RAM: 3 GB
 - Processors: 2 vCPUs
 - Network Adapter: NAT Network
 
@@ -142,7 +134,7 @@ The following resources were allocated:
 
 ![Kali Linux Desktop](screenshots/kali-linux-desktop.png)
 
-## Step 4: Create and Configure the NAT Network
+### Step 4: Create and Configure the NAT Network
 
 A dedicated NAT Network named `Kali-NAT` was created through the VirtualBox Network Manager.
 
@@ -155,55 +147,17 @@ Gateway: 10.0.0.1
 DHCP: Enabled
 ```
 
-The NAT Network was intended to provide outbound connectivity and communication between virtual machines connected to the same NAT Network.
+This network was intended to provide internet connectivity to the Kali Linux virtual machine.
 
 **Screenshot – NAT Network Configuration**
 
 ![NAT Network Configuration](screenshots/nat-network-configuration.png)
 
-## Step 5: Configure the Ubuntu Server Virtual Machine
+### Step 5: Configure Kali Linux Network Adapter
 
-An Ubuntu Server virtual machine named `ubuntu-server-lab` was configured.
+The Kali Linux virtual machine was connected to the custom `Kali-NAT` network.
 
-The server was assigned a Host-Only network connection for communication within the virtual laboratory.
-
-The following SSH connection details were recorded during the setup:
-
-```text
-Virtual Machine: ubuntu-server-lab
-Hostname/User: darkhub
-Host-Only IP: 192.168.56.101
-NAT IP: 10.0.2.15
-```
-
-**Screenshot – Ubuntu Server Virtual Machine**
-
-![Ubuntu Server](screenshots/ubuntu-server.png)
-
-## Step 6: Configure the Host-Only Network
-
-A separate Host-Only network was configured in VirtualBox.
-
-This network provides a private communication environment between the host operating system and connected virtual machines.
-
-Configuration:
-
-```text
-Host IP: 192.168.56.1
-Subnet Mask: 255.255.255.0
-DHCP Server: 192.168.56.100
-DHCP Pool: 192.168.56.101 - 192.168.56.254
-```
-
-The Host-Only network was maintained separately from the NAT Network.
-
-**Screenshot – Host-Only Network Configuration**
-
-![Host-Only Network Configuration](screenshots/host-only-network.png)
-
-## Step 7: Configure Kali Linux Network Settings
-
-The intended static IPv4 configuration for Kali Linux was:
+The required static IPv4 configuration was:
 
 ```text
 IP Address: 10.0.0.2
@@ -211,27 +165,90 @@ Subnet Mask: 255.255.255.0
 Gateway: 10.0.0.1
 ```
 
-During configuration, Kali Linux encountered a network activation issue.
+The network interface was configured through Kali Linux NetworkManager.
 
-The static configuration did not establish connectivity, and subsequent DHCP activation attempts also failed to obtain an IPv4 address.
+**Screenshot – Kali Linux Network Settings**
 
-The issue was investigated using NetworkManager and Linux networking utilities.
-
-**Screenshot – Kali Linux Network Configuration**
-
-![Kali Linux Network Configuration](screenshots/kali-network-configuration.png)
-
-**Screenshot – Network Activation Error**
-
-![Network Activation Error](screenshots/network-activation-error.png)
+![Kali Linux Network Settings](screenshots/kali-network-configuration.png)
 
 ---
 
-# 🔎 6. Network Verification and Troubleshooting
+# 🔎 6. Network Troubleshooting and Resolution
 
-The following Linux commands were used or identified for inspecting network interfaces, routing information and connectivity.
+During the configuration process, Kali Linux encountered a network activation failure.
 
-### 6.1 Check Network Interfaces
+This section documents the issue, the troubleshooting process and the alternative configuration that restored network connectivity.
+
+### 6.1 Initial Network Activation Error
+
+When attempting to activate the connection using NetworkManager, the following command was executed:
+
+```bash
+sudo nmcli connection up "Wired connection 1"
+```
+
+However, the connection failed to activate.
+
+The terminal returned the following error:
+
+```text
+Error: Connection activation failed:
+IP configuration could not be reserved
+(no available address, timeout, etc.).
+```
+
+The network interface appeared as UP, but it did not successfully obtain an IPv4 address.
+
+**Screenshot – Kali Linux Network Activation Error**
+
+![Kali Linux Network Activation Error](screenshots/kali-network-activation-error.png)
+
+### 6.2 Troubleshooting Approach
+
+The initial troubleshooting process involved checking the network configuration and attempting to restore connectivity.
+
+The following possibilities were considered:
+
+- Incorrect IPv4 configuration.
+- DHCP address allocation failure.
+- NetworkManager connection activation issues.
+- VirtualBox NAT Network configuration.
+
+The initial static IP configuration did not establish connectivity, and subsequent DHCP activation attempts also failed.
+
+### 6.3 Alternative Configuration and Resolution
+
+An alternative approach was used to reset the IPv4 configuration of the NetworkManager connection and switch it to automatic addressing.
+
+The following command was executed:
+
+```bash
+sudo nmcli connection modify "Wired connection 1" ipv4.method auto ipv4.addresses "" ipv4.gateway "" ipv4.dns ""
+```
+
+This configuration changed the IPv4 method to automatic (DHCP) and cleared the previously configured static address, gateway and DNS values.
+
+The connection was then restarted:
+
+```bash
+sudo nmcli connection down "Wired connection 1"
+sudo nmcli connection up "Wired connection 1"
+```
+
+**Result:** The alternative configuration restored network connectivity.
+
+**Screenshot – Successful Network Activation**
+
+![Successful Network Activation](screenshots/network-activation-success.png)
+
+
+---
+
+## 🧪 7. Network Verification
+
+After restoring network connectivity, the following commands can be used to inspect the network configuration and verify the connection.
+
+### 7.1 Check Network Interfaces
 
 ```bash
 ip a
@@ -243,27 +260,19 @@ Displays available network interfaces and their assigned IP addresses.
 
 ![Network Interfaces](screenshots/network-interfaces.png)
 
-### 6.2 Display Routing Information
+### 7.2 Display Routing Information
 
 ```bash
 ip route
 ```
 
-Displays the system's routing table and default gateway information.
+Displays the routing table and default gateway information.
 
 **Screenshot – Routing Table**
 
 ![Routing Table](screenshots/routing-table.png)
 
-### 6.3 Check NetworkManager Connections
-
-```bash
-nmcli connection show
-```
-
-Displays configured NetworkManager connections.
-
-### 6.4 Check NetworkManager Device Status
+### 7.3 Check NetworkManager Device Status
 
 ```bash
 nmcli device status
@@ -275,75 +284,61 @@ Displays the status of network devices managed by NetworkManager.
 
 ![NetworkManager Status](screenshots/networkmanager-status.png)
 
-### 6.5 Test Gateway Connectivity
+### 7.4 Test Gateway Connectivity
 
 ```bash
 ping 10.0.0.1
 ```
 
-Tests connectivity to the intended NAT Network gateway.
+Tests connectivity to the configured NAT Network gateway.
 
-### 6.6 Check DNS Configuration
-
-```bash
-cat /etc/resolv.conf
-```
-
-Displays the configured DNS resolver information.
-
-### 6.7 Verify SSH Connectivity
+### 7.5 Test Internet Connectivity
 
 ```bash
-ssh username@192.168.56.101
+ping -c 4 8.8.8.8
 ```
 
-Tests SSH connectivity to the Ubuntu Server using its Host-Only IP address.
+Tests outbound connectivity using Google's public DNS IP address.
 
-*Note: Commands are included for documentation and verification. Only tests actually performed should be reported as successful.*
+### 7.6 Test DNS Resolution
+
+```bash
+ping -c 4 google.com
+```
+
+Checks whether DNS resolution and network connectivity are working.
+
+*Only report verification tests as successful when their actual command outputs confirm success.*
 
 ---
 
-## 🐞 7. Challenges Encountered
+## 🐞 8. Challenges and Lessons Learned
 
-### 7.1 Kali Linux Network Activation Failure
+The major technical challenge encountered during this project was the Kali Linux network activation failure.
 
-During the configuration of the Kali Linux NAT Network adapter, NetworkManager returned an IP configuration activation error.
+The issue demonstrated the importance of understanding the relationship between:
 
-The network interface appeared as UP, but it did not receive an IPv4 address.
+- VirtualBox NAT Network configuration.
+- Static IPv4 addressing.
+- DHCP address allocation.
+- Linux NetworkManager.
+- Network interface activation.
 
-**Troubleshooting observations:**
+The successful alternative configuration demonstrated how resetting an incorrect or problematic IPv4 configuration and switching to automatic addressing can restore connectivity.
 
-- The NAT Network was created in VirtualBox.
-- DHCP was enabled.
-- The Kali network interface was enabled.
-- DHCP activation did not successfully assign an IPv4 address.
-- Static IPv4 configuration did not establish connectivity.
-- The issue required further investigation.
-
-**Status:** Further troubleshooting required.
-
-### 7.2 Virtual Network Configuration
-
-Different VirtualBox network modes were explored to understand how virtual machines communicate.
-
-The NAT Network and Host-Only configurations were maintained separately to avoid interfering with the Host-Only communication environment.
-
----
-
-## 📚 8. Key Learning Outcomes
+### Key Learning Outcomes
 
 Through this project, I gained practical experience in:
 
-1. Virtualization and virtual machine management.
-2. Installing and configuring Kali Linux.
-3. Working with Ubuntu Server.
-4. Understanding NAT Network and Host-Only networking.
-5. IPv4 addressing and subnet masks.
-6. DHCP and static IP configuration.
-7. Linux network troubleshooting.
-8. Using command-line networking utilities.
-9. Identifying network activation issues.
-10. Technical documentation and troubleshooting.
+1. Virtual machine installation and management.
+2. Configuring Kali Linux in VirtualBox.
+3. Virtual networking and NAT configuration.
+4. IPv4 addressing and subnet masks.
+5. Static and automatic IP configuration.
+6. DHCP troubleshooting.
+7. Linux NetworkManager administration.
+8. Command-line network troubleshooting.
+9. Technical documentation and problem resolution.
 
 ---
 
@@ -359,22 +354,23 @@ All security testing should be conducted within systems owned by the student or 
 
 - [Oracle VirtualBox](https://www.virtualbox.org/)
 - [Kali Linux](https://www.kali.org/get-kali/)
-- [Ubuntu Server](https://ubuntu.com/download/server)
 - [7-Zip](https://www.7-zip.org/)
+- [Networkwalks](https://networkwalks.com/)
 
 ---
 
-## 👤  Author
+## 👤 11. Author
 
 **Bryan Ntangju Ache**
 
 Cybersecurity Internship  
 Networkwalks
 
-**Project:** Cybersecurity Virtual Lab Setup
+**Project:** Cybersecurity Lab Environment Setup
 
-**Technologies:** Kali Linux | Ubuntu Server | VirtualBox | Windows 11
+**Technologies:** Kali Linux | VirtualBox | Windows 11 | NetworkManager
 
 ---
 
-*This repository documents my practical experience in building, configuring and troubleshooting a virtual cybersecurity laboratory.*
+*This repository documents my practical experience in setting up, configuring and troubleshooting a virtual cybersecurity laboratory.*
+
