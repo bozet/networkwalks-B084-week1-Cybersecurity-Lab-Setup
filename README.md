@@ -101,14 +101,14 @@ The host computer used for this project was an HP EliteBook 8770w running Window
 Available system resources were considered before allocating memory and processing power to the virtual machine.
 
 
-### Step 2: Install Oracle VirtualBox
+###  Install Oracle VirtualBox
 
 Oracle VirtualBox version 7.1.8 was installed and configured as the hypervisor.
 
 VirtualBox provides the virtualization platform required to create and manage the Kali Linux virtual machine.
 
 
-![VirtualBox Dashboard](screenshots/virtualbox-dashboard.png)
+![VirtualBox Dashboard](https://github.com/bozet/networkwalks-B084-week1-Cybersecurity-Lab-Setup/blob/main/VirtualBox%20Dashboard.jpg)
 
 ### Step 3: Download and Import Kali Linux
 
