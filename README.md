@@ -110,7 +110,7 @@ VirtualBox provides the virtualization platform required to create and manage th
 
 ![VirtualBox Dashboard](https://github.com/bozet/networkwalks-B084-week1-Cybersecurity-Lab-Setup/blob/main/VirtualBox%20Dashboard.jpg)
 
-### Step 3: Download and Import Kali Linux
+###  Download and Import Kali Linux
 
 The official Kali Linux prebuilt VirtualBox image was downloaded and extracted.
 
@@ -122,7 +122,6 @@ The following resources were allocated:
 - Processors: 2 vCPUs
 - Network Adapter: NAT Network
 
-**Screenshot – Kali Linux Virtual Machine**
 
 ![Kali Linux Virtual Machine](screenshots/kali-linux-vm.png)
 
