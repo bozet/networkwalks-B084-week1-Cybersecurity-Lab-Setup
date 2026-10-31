@@ -27,7 +27,7 @@
 
 ---
 
-## 📌 1. Project Overview
+## 📌  Project Overview
 
 This project documents the setup and configuration of an isolated cybersecurity laboratory using Oracle VirtualBox and Kali Linux.
 
@@ -35,7 +35,7 @@ The objective was to establish a virtual environment for cybersecurity learning,
 
 The project involved creating a custom NAT Network, importing Kali Linux, configuring its network interface and troubleshooting connectivity issues encountered during the setup.
 
-## 🎯 2. Project Objectives
+## 🎯  Project Objectives
 
 - Install and configure Oracle VirtualBox.
 - Download and import Kali Linux.
@@ -47,9 +47,9 @@ The project involved creating a custom NAT Network, importing Kali Linux, config
 
 ---
 
-## 🖥️ 3. Lab Environment and Architecture
+## 🖥️  Lab Environment and Architecture
 
-### 3.1 Host Machine Specifications
+###  Host Machine Specifications
 
 | Component | Configuration |
 |---|---|
@@ -61,9 +61,9 @@ The project involved creating a custom NAT Network, importing Kali Linux, config
 | Allocated CPU | 2 vCPUs |
 | Network Mode | NAT Network |
 
-### 3.2 Network Architecture
+###  Network Architecture
 
-The laboratory uses a custom VirtualBox NAT Network.
+The lab uses a custom VirtualBox NAT Network.
 
 | Parameter | Configuration |
 |---|---|
@@ -78,7 +78,7 @@ The intended configuration assigns Kali Linux a static IP address within the cus
 
 ---
 
-## ⚙️ 4. Tools and Technologies
+## ⚙️  Tools and Technologies
 
 | Tool | Purpose |
 |---|---|
@@ -92,17 +92,14 @@ The intended configuration assigns Kali Linux a static IP address within the cus
 
 ---
 
-# 🚀 5. Implementation and Configuration
+# 🚀  Implementation and Configuration
 
-### Step 1: Prepare the Host Machine
+###  Prepare the Host Machine
 
 The host computer used for this project was an HP EliteBook 8770w running Windows 11.
 
 Available system resources were considered before allocating memory and processing power to the virtual machine.
 
-**Screenshot – Host Machine Information**
-
-![Host Machine Information](screenshots/host-machine-information.png)
 
 ### Step 2: Install Oracle VirtualBox
 
@@ -110,7 +107,6 @@ Oracle VirtualBox version 7.1.8 was installed and configured as the hypervisor.
 
 VirtualBox provides the virtualization platform required to create and manage the Kali Linux virtual machine.
 
-**Screenshot – VirtualBox Dashboard**
 
 ![VirtualBox Dashboard](screenshots/virtualbox-dashboard.png)
 
